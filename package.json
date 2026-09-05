@@ -5,6 +5,7 @@
   "private": "true",
   "scripts": {
     "build": "pnpm -r --workspace-root=false run build",
+    "build:common": "pnpm --filter @chatapp/common build",
     "dev": "pnpm -r --workspace-root=false run dev",
     "lint": "pnpm -r --workspace-root=false run lint",
     "format": "pnpm -r --workspace-root=false run format",
@@ -29,6 +30,6 @@
     "eslint": "^10.8.1",
     "prettier": "^3.9.6",
     "tsx": "^4.23.12",
-    "typerscript": "^0.2.3"
+    "typescript": "^7.0.2"
   }
 }
