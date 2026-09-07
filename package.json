@@ -4,12 +4,12 @@
   "description": "",
   "private": "true",
   "scripts": {
-    "build": "pnpm -r --workspace-root=false run build",
+    "build": "pnpm -r --no-include-workspace-root run build",
     "build:common": "pnpm --filter @chatapp/common build",
-    "dev": "pnpm -r --workspace-root=false run dev",
-    "lint": "pnpm -r --workspace-root=false run lint",
-    "format": "pnpm -r --workspace-root=false run format",
-    "test": "pnpm -r --workspace-root=false run test"
+    "dev": "pnpm -r --no-include-workspace-root run dev",
+    "lint": "pnpm -r --no-include-workspace-root run lint",
+    "format": "pnpm -r --no-include-workspace-root run format",
+    "test": "pnpm -r --no-include-workspace-root run test"
   },
   "keywords": [],
   "author": "",
@@ -17,7 +17,7 @@
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
-      "version": "^11.1.2",
+      "version": "^12.3.4",
       "onFail": "download"
     }
   },

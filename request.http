@@ -1,0 +1,9 @@
+POST http://localhost:4003/auth/register
+content-type: application/json
+
+{
+    "email": "admin@gmail.com",
+    "password": "admin12345",
+    "displayName": "admin"
+}
+
