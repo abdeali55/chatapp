@@ -3,7 +3,7 @@ export const createEnv = (schema, options = {}) => {
     const parsed = schema.safeParse(source);
     if (!parsed.success) {
         const formattedErrors = parsed.error.format();
-        throw new Error('[${service}] Environment variable validation failed: ${JSON.stringify(formattedErrors)}');
+        throw new Error(`[${service}] Environment variable validation failed: ${JSON.stringify(formattedErrors)}`);
     }
     return parsed.data;
 };

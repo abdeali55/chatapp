@@ -1,0 +1,19 @@
+import express from "express";
+import cors from "cors";
+import helmet from "helmet";
+import { errorHandler } from "@/middleware/error-handler";
+import { registerRoutes } from "./routes";
+export const createApp = () => {
+    const app = express();
+    app.use(helmet());
+    app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+    app.use(express.json());
+    app.use(express.urlencoded({ extended: true }));
+    registerRoutes(app);
+    app.use((_req, res) => {
+        res.status(404).json({ message: "Not Found" });
+    });
+    app.use(errorHandler);
+    return app;
+};
+//# sourceMappingURL=app.js.map

@@ -1,0 +1,1 @@
+{"version":3,"file":"internal-auth.d.ts","sourceRoot":"","sources":["../../src/http/internal-auth.ts"],"names":[],"mappings":"AAEA,OAAO,KAAK,EAAE,cAAc,EAAE,MAAM,SAAS,CAAC;AAE9C,MAAM,WAAW,mBAAmB;IAChC,UAAU,CAAC,EAAE,MAAM,CAAC;IACpB,WAAW,CAAC,EAAE,MAAM,EAAE,CAAC;CAC1B;AAID,eAAO,MAAM,4BAA4B,kBACtB,MAAM,YACZ,mBAAmB,KAC7B,cAmBF,CAAA"}

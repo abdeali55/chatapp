@@ -3,6 +3,8 @@ import cors from "cors"
 import helmet from "helmet"
 import { errorHandler } from "@/middleware/error-handler";
 import { registerRoutes } from "@/routes";
+import { createInternalAuthMiddleware } from "../../../packages/common/src/http/internal-auth";
+import { env } from "node:process";
 
 export const createApp = (): Application => {
     const app = express();
@@ -10,6 +12,7 @@ export const createApp = (): Application => {
     app.use(cors({ origin: "http://localhost:5173", credentials: true }))
     app.use(express.json())
     app.use(express.urlencoded({ extended: true }))
+    app.use(createInternalAuthMiddleware(env.INTERNAL_AUTH_TOKEN!))
 
     registerRoutes(app);
     

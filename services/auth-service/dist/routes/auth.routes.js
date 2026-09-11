@@ -1,0 +1,7 @@
+import { registerHandler } from "@/controllers/auth.controller";
+import { validateRequest } from "@chatapp/common";
+import { Router } from "express";
+import { registerSchema } from "@/routes/auth.schema";
+export const authRouter = Router();
+authRouter.post("/register", validateRequest({ body: registerSchema.shape.body }), registerHandler);
+//# sourceMappingURL=auth.routes.js.map

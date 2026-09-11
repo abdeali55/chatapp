@@ -6,9 +6,8 @@
         "tsBuildInfoFile": "dist/tsconfig.tsBuildInfoFile",
         "declaration": true,
         "declarationMap": true,
-        "baseUrl": "./",
         "paths": {
-            "@/*": ["src/*"]
+            "@/*": ["./src/*"]
         }
     },
     "include": ["src"],

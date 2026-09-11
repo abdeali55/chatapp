@@ -16,10 +16,10 @@ export const createEnv = <TSchema extends ZodRawShape>(
 
     if(!parsed.success) {
         const formattedErrors = parsed.error.format();
-        throw new Error('[${service}] Environment variable validation failed: ${JSON.stringify(formattedErrors)}')
+        throw new Error(`[${service}] Environment variable validation failed: ${JSON.stringify(formattedErrors)}`);
     }
 
-    return parsed.data
+    return parsed.data;
 }
 
 export type EnvSchema<TShape extends ZodRawShape> = ZodObject<TShape>
