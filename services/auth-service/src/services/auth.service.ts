@@ -5,6 +5,7 @@ import { hashPassword, signAccessToken, signRefreshToken } from "@/utils/token";
 import { HttpError } from "@chatapp/common";
 import { Op, Transaction } from "sequelize";
 import crypto from "node:crypto"
+import { publishUserRegistered } from "@/messaging/event-publishing";
 
 const REFRESH_TOKEN_TTL_DAYS = 30;
 
@@ -38,6 +39,8 @@ export const register = async (input: RegisterInput): Promise<AuthResponse> => {
             displayName: user.displayName,
             createdAt: user.createdAt.toISOString(),
         }
+
+        await publishUserRegistered(userData);
 
         return {
             accessToken,

@@ -12,7 +12,7 @@ export const createApp = (): Application => {
     app.use(cors({ origin: "http://localhost:5173", credentials: true }))
     app.use(express.json())
     app.use(express.urlencoded({ extended: true }))
-    app.use(createInternalAuthMiddleware(env.INTERNAL_AUTH_TOKEN!))
+    app.use(createInternalAuthMiddleware(env.INTERNAL_API_TOKEN!))
 
     registerRoutes(app);
     
