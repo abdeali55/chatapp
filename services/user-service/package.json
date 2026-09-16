@@ -20,6 +20,7 @@
   "type": "module",
   "dependencies": {
     "@chatapp/common": "workspace:*",
+    "amqplib": "^2.0.1",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
@@ -29,6 +30,7 @@
     "sequelize": "^6.37.8"
   },
   "devDependencies": {
+    "@types/amqplib": "^0.10.8",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/sequelize": "^6.12.0"

@@ -2,8 +2,8 @@ POST http://localhost:4000/auth/register
 content-type: application/json
 
 {
-    "email": "admin@gmail.com",
-    "password": "admin12345",
-    "displayName": "admin"
+    "email": "max@gmail.com",
+    "password": "abdeali123452367",
+    "displayName": "max"
 }
 

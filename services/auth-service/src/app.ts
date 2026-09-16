@@ -4,7 +4,7 @@ import helmet from "helmet"
 import { errorHandler } from "@/middleware/error-handler";
 import { registerRoutes } from "@/routes";
 import { createInternalAuthMiddleware } from "../../../packages/common/src/http/internal-auth";
-import { env } from "node:process";
+import { env } from "@/config/env";
 
 export const createApp = (): Application => {
     const app = express();
