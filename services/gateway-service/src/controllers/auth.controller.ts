@@ -1,5 +1,5 @@
 import { authProxyService } from "@/services/auth-proxy.service";
-import { registerSchema } from "@/validation/auth.schema";
+import { loginSchema, refreshSchema, registerSchema, revokeSchema } from "@/validation/auth.schema";
 import { AsyncHandler } from "@chatapp/common";
 
 
@@ -12,4 +12,34 @@ export const registerUser: AsyncHandler = async(req, res, next) => {
     } catch (error) {
         next(error);
     }
-}
+};
+
+export const loginUser: AsyncHandler = async(req, res, next) => {
+    try {
+        const payload = loginSchema.parse(req.body);
+        const tokens = await authProxyService.login(payload);
+        res.json(tokens);
+    } catch (error) {
+        next(error);
+    }
+};
+
+export const refreshToken: AsyncHandler = async(req, res, next) => {
+    try {
+        const payload = refreshSchema.parse(req.body);
+        const tokens = await authProxyService.refresh(payload);
+        res.json(tokens);
+    } catch (error) {
+        next(error);
+    }
+};
+
+export const revokeToken: AsyncHandler = async(req, res, next) => {
+    try {
+        const payload = revokeSchema.parse(req.body);
+        await authProxyService.revoke(payload);
+        res.status(200).json({message: "Token revoked successfully"});
+    } catch (error) {
+        next(error);
+    }
+};

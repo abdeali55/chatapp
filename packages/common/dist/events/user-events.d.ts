@@ -1,0 +1,11 @@
+import { EventPayload, OutboundEvent } from "./event-types";
+export declare const USER_EVENT_EXCHANGE = "user.events";
+export declare const USER_CREATED_ROUTING_KEY = "user.created";
+export interface UserCreatedPayload extends EventPayload {
+    id: string;
+    email: string;
+    displayName: string;
+    createdAt: string;
+}
+export type UserCreatedEvent = OutboundEvent<typeof USER_CREATED_ROUTING_KEY, UserCreatedPayload>;
+//# sourceMappingURL=user-events.d.ts.map

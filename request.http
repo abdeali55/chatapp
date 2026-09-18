@@ -1,4 +1,7 @@
-POST http://localhost:4000/auth/register
+@baseGateway = http://localhost:4000
+
+###
+POST {{baseGateway}}/auth/register
 content-type: application/json
 
 {
@@ -7,3 +10,11 @@ content-type: application/json
     "displayName": "max"
 }
 
+### Auth Login
+POST {{baseGateway}}/auth/login
+content-type: application/json
+
+{
+    "email": "max@gmail.com",
+    "password": "abdeali123452367"
+}
