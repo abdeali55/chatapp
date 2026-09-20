@@ -8,4 +8,5 @@ export * from "./http/internal-auth";
 export * from "./events/event-types";
 export * from "./events/auth-event";
 export * from "./events/user-events";
+export * from "./http/auth";
 //# sourceMappingURL=index.js.map
