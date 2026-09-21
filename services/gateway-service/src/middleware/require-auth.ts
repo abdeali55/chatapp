@@ -19,4 +19,31 @@ const parseAuthorizationHeader = (value: string | undefined): string => {
     }
 
     return token;
-}
+};
+
+const toAuthenticateUser = (claims: AccessTokenClaims): AuthenticateUser => {
+    if(!claims.sub) {
+        throw new HttpError(401, 'Unauthorized');
+    }
+
+    return {
+        id: claims.sub,
+        email: claims.email,
+    };
+}; 
+
+export const requireAuth: RequestHandler = async (req, res, next) => {
+    try {
+        const token = parseAuthorizationHeader(req.headers.authorization);
+        const claims = jwt.verify(token, env.JWT_SECRET) as AccessTokenClaims;
+        req.user = toAuthenticateUser(claims);
+        next();
+
+    } catch (error) {
+        if(error instanceof HttpError) {
+            next(error);
+        } else {
+            next(new HttpError(401, 'Unauthorized'));
+        }
+    }
+}; 
