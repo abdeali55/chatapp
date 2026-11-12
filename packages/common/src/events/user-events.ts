@@ -8,7 +8,8 @@ export interface UserCreatedPayload extends EventPayload {
     id: string;
     email:string;
     displayName: string;
-    createdAt:string
+    createdAt:string;
+    updatedAt: string;
 }
 
 export type UserCreatedEvent = OutboundEvent<typeof USER_CREATED_ROUTING_KEY, UserCreatedPayload>;

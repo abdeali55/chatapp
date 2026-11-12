@@ -4,12 +4,13 @@ import { env } from "./config/env";
 import { logger } from "./utils/logger";
 import { closeMongoClient, getMongoClient } from "./clients/mongo.client";
 import { closeRedis, connectRedis, getRedisClient } from "./clients/redis.client";
+import { startConsumers } from "./messaging/rabbitmq.consumer";
 
 
 const main = async () => {
     try {
 
-        await Promise.all([getMongoClient(), connectRedis()])
+        await Promise.all([getMongoClient(), connectRedis(), startConsumers()])
 
         const app = createApp();
         const server = createServer(app);

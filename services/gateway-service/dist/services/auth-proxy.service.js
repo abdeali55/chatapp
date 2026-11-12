@@ -7,7 +7,7 @@ const client = axios.create({
 });
 const authHeader = {
     headers: {
-        'X-Internal-Token': env.INTERNAL_API_TOKEN,
+        'x-internal-auth-token': env.INTERNAL_API_TOKEN,
     },
 };
 const resolvedMessage = (status, data) => {
@@ -31,6 +31,32 @@ export const authProxyService = {
         try {
             const response = await client.post('/auth/register', payload, authHeader);
             return response.data;
+        }
+        catch (error) {
+            return handleAxiosError(error);
+        }
+    },
+    async login(payload) {
+        try {
+            const response = await client.post('/auth/login', payload, authHeader);
+            return response.data;
+        }
+        catch (error) {
+            return handleAxiosError(error);
+        }
+    },
+    async refresh(payload) {
+        try {
+            const response = await client.post('/auth/refresh', payload, authHeader);
+            return response.data;
+        }
+        catch (error) {
+            return handleAxiosError(error);
+        }
+    },
+    async revoke(payload) {
+        try {
+            await client.post('/auth/revoke', payload, authHeader);
         }
         catch (error) {
             return handleAxiosError(error);

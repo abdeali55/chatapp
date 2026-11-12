@@ -8,7 +8,8 @@ declare const envSchema: z.ZodObject<{
     JWT_EXPIRES_IN: z.ZodDefault<z.ZodString>;
     JWT_REFRESH_SECRET: z.ZodString;
     JWT_REFRESH_EXPIRES_IN: z.ZodDefault<z.ZodString>;
-    INTERNAL_AUTH_TOKEN: z.ZodString;
+    INTERNAL_API_TOKEN: z.ZodString;
+    RABBITMQ_URL: z.ZodString;
 }, "strip", z.ZodTypeAny, {
     NODE_ENV: "development" | "production" | "test";
     AUTH_SERVICE_PORT: number;
@@ -17,7 +18,8 @@ declare const envSchema: z.ZodObject<{
     JWT_EXPIRES_IN: string;
     JWT_REFRESH_SECRET: string;
     JWT_REFRESH_EXPIRES_IN: string;
-    INTERNAL_AUTH_TOKEN: string;
+    INTERNAL_API_TOKEN: string;
+    RABBITMQ_URL: string;
 }, {
     NODE_ENV?: "development" | "production" | "test" | undefined;
     AUTH_SERVICE_PORT?: number | undefined;
@@ -26,7 +28,8 @@ declare const envSchema: z.ZodObject<{
     JWT_EXPIRES_IN?: string | undefined;
     JWT_REFRESH_SECRET: string;
     JWT_REFRESH_EXPIRES_IN?: string | undefined;
-    INTERNAL_AUTH_TOKEN: string;
+    INTERNAL_API_TOKEN: string;
+    RABBITMQ_URL: string;
 }>;
 type EnvType = z.infer<typeof envSchema>;
 export declare const env: EnvType;

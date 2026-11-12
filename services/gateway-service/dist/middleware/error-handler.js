@@ -1,7 +1,7 @@
 import { HttpError } from "@chatapp/common";
 import { logger } from "@/utils/logger";
 export const errorHandler = (err, req, res, next) => {
-    logger.error({ err }, "Unhandled error occured");
+    logger.error({ err }, "Unhandled error occurred");
     const error = err instanceof HttpError ? err : undefined;
     const statusCode = error?.statusCode ?? 500;
     const message = statusCode >= 500 ? "Internal Server Error" : error?.message ?? "Unknown Error";

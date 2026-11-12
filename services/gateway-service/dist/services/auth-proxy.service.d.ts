@@ -28,5 +28,8 @@ export interface RevokePayload {
 }
 export declare const authProxyService: {
     register(payload: RegisterPayload): Promise<AuthResponse>;
+    login(payload: LoginPayload): Promise<AuthTokens>;
+    refresh(payload: RefreshPayload): Promise<AuthTokens>;
+    revoke(payload: RevokePayload): Promise<void>;
 };
 //# sourceMappingURL=auth-proxy.service.d.ts.map

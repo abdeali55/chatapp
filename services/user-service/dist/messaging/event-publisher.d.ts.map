@@ -1,0 +1,1 @@
+{"version":3,"file":"event-publisher.d.ts","sourceRoot":"","sources":["../../src/messaging/event-publisher.ts"],"names":[],"mappings":"AAIA,OAAO,KAAK,EAAoB,kBAAkB,EAAE,MAAM,iBAAiB,CAAC;AAuC5E,eAAO,MAAM,aAAa,qBAezB,CAAA;AAED,eAAO,MAAM,cAAc,qBAgB1B,CAAC;AAEF,eAAO,MAAM,kBAAkB,YAAmB,kBAAkB,kBA4BnE,CAAC;AAEF,eAAO,MAAM,eAAe,YAAmB,kBAAkB,kBAOhE,CAAC"}

@@ -4,10 +4,12 @@ import { env } from "./config/env";
 import { logger } from "./utils/logger";
 import { connectToDatabase, closeDatabase } from "@/db/sequelize";
 import { initModels } from "./models";
+import { closePublisher, initPublisher } from "./messaging/event-publishing";
 const main = async () => {
     try {
         await connectToDatabase();
         await initModels();
+        await initPublisher();
         const app = createApp();
         const server = createServer(app);
         const port = env.AUTH_SERVICE_PORT;
@@ -16,9 +18,11 @@ const main = async () => {
         });
         const shutdown = async () => {
             logger.info("Shutting down auth service...");
-            Promise.all([closeDatabase()]).catch((error) => {
+            Promise.all([closeDatabase(), closePublisher()])
+                .catch((error) => {
                 logger.error({ error }, "Error during shutdown tasks");
-            }).finally(() => {
+            })
+                .finally(() => {
                 server.close(() => process.exit(0));
             });
         };

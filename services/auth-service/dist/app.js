@@ -4,14 +4,14 @@ import helmet from "helmet";
 import { errorHandler } from "@/middleware/error-handler";
 import { registerRoutes } from "@/routes";
 import { createInternalAuthMiddleware } from "../../../packages/common/src/http/internal-auth";
-import { env } from "node:process";
+import { env } from "@/config/env";
 export const createApp = () => {
     const app = express();
     app.use(helmet());
     app.use(cors({ origin: "http://localhost:5173", credentials: true }));
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
-    app.use(createInternalAuthMiddleware(env.INTERNAL_AUTH_TOKEN));
+    app.use(createInternalAuthMiddleware(env.INTERNAL_API_TOKEN));
     registerRoutes(app);
     app.use((_req, res) => {
         res.status(404).json({ message: "Not Found" });
